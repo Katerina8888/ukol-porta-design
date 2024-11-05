@@ -5,7 +5,19 @@ export default {
     "./src/**/*.{html,js}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        'xs': '12px',
+        's': '14px',
+        'm': '16px',
+        'l': '18px',
+        'xl': '20px',
+        '2xl': '26px',
+      },
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', 'Arial', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
