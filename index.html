@@ -2,12 +2,35 @@
 <html lang="cs">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/x-icon" href="/src/images/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dokazujeme, že šetrnost k přírodě je ekonomicky výhodná</title>
+    <script type="module" src="/src/main.js"></script>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div class="bg-red-500 border"></div>
+    <header class="bg-primary">
+      <nav
+        class="px-[18px] pb-[12px] lg:px-[60px] border-b border-quaternary"
+        x-data="{ menuItems: [
+        { name: 'oekoplan.cz', link: '/', ariaLabel: 'odkaz na web Oekoplan.cz' },
+        { name: 'eprukaz.cz', link: '/', ariaLabel: 'odkaz na web Eprukaz.cz' }
+      ] }"
+      >
+        <ul class="flex">
+          <template x-for="item in menuItems" :key="item.name">
+            <li class="mt-2 mr-[14px] w-[102px]" x-data="{ isOpen: false }">
+              <a
+                :href="item.link"
+                :aria-label="item.ariaLabel"
+                x-text="item.name"
+                class="relative pb-[15px] text-tertiary text-s w-full hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-1/2 hover:after:-translate-x-1/2 hover:after:bg-[url('/src/images/arrow-up-full.svg')] hover:after:w-[13px] hover:after:h-[6px]"
+              >
+              </a>
+            </li>
+          </template>
+        </ul>
+      </nav>
+    </header>
   </body>
 </html>
