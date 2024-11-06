@@ -12,14 +12,14 @@
     <header class="bg-primary">
       <nav
         class="px-[18px] pb-[12px] lg:px-[60px] border-b border-quaternary"
-        x-data="{ menuItems: [
-        { name: 'oekoplan.cz', link: '/', ariaLabel: 'odkaz na web Oekoplan.cz' },
-        { name: 'eprukaz.cz', link: '/', ariaLabel: 'odkaz na web Eprukaz.cz' }
+        x-data="{ upperMenuItems: [
+        { name: 'oekoplan.cz', link: '/', ariaLabel: 'odkaz na web oekoplan.cz' },
+        { name: 'eprukaz.cz', link: '/', ariaLabel: 'odkaz na web eprukaz.cz' }
       ] }"
       >
         <ul class="flex">
-          <template x-for="item in menuItems" :key="item.name">
-            <li class="mt-2 mr-[14px] w-[102px]" x-data="{ isOpen: false }">
+          <template x-for="item in upperMenuItems" :key="item.name">
+            <li class="mt-2 mr-[14px] w-[102px]">
               <a
                 :href="item.link"
                 :aria-label="item.ariaLabel"
@@ -29,6 +29,194 @@
               </a>
             </li>
           </template>
+        </ul>
+      </nav>
+
+      <nav
+        class="pl-[18px] pr-[19px] flex justify-between text-m"
+        x-data="{ menuItems: [
+      { name: 'Energetické posudky', link: '/', ariaLabel: 'odkaz na stránku energetické posudky' },
+      { name: 'O nás', link: '/', ariaLabel: 'odkaz na stránku o nás' },
+      { name: 'Kariéra', link: '/', ariaLabel: 'odkaz na stránku kariéra' },
+    ] }"
+      >
+        <div class="pt-[27px]">
+          <a href="/" aria-label="úvodní stránka">
+            <img
+              src="/src/images/logo.svg"
+              alt="logo společnosti oekoplan "
+              width="171"
+              height="40"
+              class="w-[140px] h-[33px] lg:w-[171px] lg:h-[40px]"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+        <!-- mobilní menu -->
+        <div
+          x-data="{ open: false }"
+          class="lg:hidden list-none mt-[19px] border bg-white text-primary font-[500] text-m border-quaternary w-[130px]"
+          :class="open ? 'rounded-tr-3xl rounded-tl-3xl':'rounded-full'"
+        >
+          <!-- maska -->
+          <div
+            :class="open ? 'absolute w-[150px] h-[60px] bg-white mask-radial top-[110px] right-[19px]':''"
+          ></div>
+
+          <!-- Tlačítko pro otevírání menu -->
+          <a
+            @click="open = !open"
+            href="#"
+            class="flex items-center justify-between w-full px-4 py-2 cursor-pointer"
+            role="button"
+            aria-expanded="open"
+            aria-label="otevřít hlavní menu"
+          >
+            <span>Menu</span>
+            <div
+              class="flex justify-center items-center bg-secondary w-[36px] h-[36px] rounded-full text-primary"
+            >
+              <span x-text="open ? 'X' : '☰'"></span>
+            </div>
+          </a>
+
+          <!-- Obsah menu, který se zobrazí při otevření -->
+          <div
+            x-show="open"
+            class="absolute bg-white rounded-3xl z-20 left-[17px] right-[19px] top-[131px] pb-[31px]"
+          >
+            <ul class="text-primary text-xl font-[700]">
+              <li class="pl-[29px] pt-[24px]">
+                <a
+                  href="/"
+                  aria-label="odkaz na stránku průkazy PENB"
+                  class="flex items-center border-b border-transparent hover:border-white"
+                >
+                  <span>Průkazy <span class="uppercase">penb</span></span>
+                  <img
+                    src="/src/images/arrow-dark-green.svg"
+                    alt=""
+                    width="13px"
+                    height="13px"
+                    loading="lazy"
+                    class="w-[13px] h-[13px]"
+                    aria-hidden="true"
+                  />
+                </a>
+              </li>
+              <template x-for="item in menuItems" :key="item.name">
+                <li class="pl-[29px] pt-[24px]" x-data="{ isOpen: false }">
+                  <a
+                    class="border-b border-transparent hover:border-white"
+                    :href="item.link"
+                    :aria-label="item.ariaLabel"
+                    x-text="item.name"
+                  >
+                  </a>
+                </li>
+              </template>
+              <li class="pl-[29px] pt-[24px]">
+                <a href="/" aria-label="odkaz na stránku kontakt">Kontakt </a>
+              </li>
+              <li class="pl-[29px] pt-[243px] flex flex-col">
+                <a href="tel:+420549241370" class="flex mb-[13px]">
+                  <span
+                    class="flex justify-center items-center bg-secondary w-[36px] h-[36px] rounded-full mr-[6px]"
+                  >
+                    <img
+                      src="/src/images/icon-phone.svg"
+                      alt=""
+                      width="16px"
+                      height="16px"
+                      loading="lazy"
+                      aria-hidden="true"
+                      class="w-[16px] h-[16px]"
+                    />
+                  </span>
+                  <span class="my-auto">+420 549 241 370</span>
+                </a>
+
+                <a href="mailto:oekoplan@oekoplan.cz" class="flex">
+                  <span
+                    class="flex justify-center items-center bg-secondary w-[36px] h-[36px] rounded-full mr-[6px]"
+                  >
+                    <img
+                      src="/src/images/arrow-dark-green2.svg"
+                      alt=""
+                      width="16px"
+                      height="16px"
+                      loading="lazy"
+                      aria-hidden="true"
+                      class="w-[16px] h-[16px]"
+                    />
+                  </span>
+                  <span class="my-auto">oekoplan@oekoplan.cz</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- desktop menu -->
+        <ul class="hidden text-white lg:flex mt-[24px]">
+          <li class="pr-[54px] pt-[13px] pb-[14px]">
+            <a
+              href="/"
+              aria-label="odkaz na stránku průkazy PENB"
+              class="flex items-center border-b border-transparent hover:border-white"
+            >
+              <span>Průkazy <span class="uppercase">penb</span></span>
+              <img
+                src="/src/images/arrow-light-green.svg"
+                alt=""
+                width="13px"
+                height="13px"
+                loading="lazy"
+                class="w-[13px] h-[13px]"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+          <template x-for="item in menuItems" :key="item.name">
+            <li
+              class="pr-[54px] pt-[13px] pb-[14px]"
+              x-data="{ isOpen: false }"
+            >
+              <a
+                class="border-b border-transparent hover:border-white"
+                :href="item.link"
+                :aria-label="item.ariaLabel"
+                x-text="item.name"
+              >
+              </a>
+            </li>
+          </template>
+          <li
+            class="py-[6px] pl-[24px] pr-[7px] border border-quaternary rounded-full w-[176px] hover:bg-tertiary hover:text-black"
+          >
+            <a
+              href="/"
+              class="flex justify-between"
+              role="button"
+              aria-label="odkaz na stránku kontakt"
+            >
+              <span class="flex items-center">Kontakt</span>
+              <div
+                class="flex justify-center items-center bg-secondary w-[36px] h-[36px] rounded-full text-black"
+              >
+                <img
+                  src="/src/images/icon-phone.svg"
+                  alt=""
+                  width="16px"
+                  height="16px"
+                  loading="lazy"
+                  aria-hidden="true"
+                  class="w-[16px] h-[16px]"
+                />
+              </div>
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
