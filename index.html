@@ -25,8 +25,7 @@
                 :aria-label="item.ariaLabel"
                 x-text="item.name"
                 class="relative w-full pb-[15px] text-s font-[500] text-tertiary hover:after:absolute hover:after:bottom-0 hover:after:left-1/2 hover:after:h-[6px] hover:after:w-[13px] hover:after:-translate-x-1/2 hover:after:bg-[url('/src/images/arrow-up-full.svg')] hover:after:content-['']"
-              >
-              </a>
+              ></a>
             </li>
           </template>
         </ul>
@@ -57,7 +56,7 @@
         <div
           x-data="{ open: false }"
           class="mt-[19px] w-[130px] list-none border border-quaternary bg-white text-m font-[500] text-primary lg:hidden"
-          :class="open ? 'rounded-tr-3xl rounded-tl-3xl':'rounded-full'"
+          :class="open ? 'rounded-tr-[23px] rounded-tl-[23px]':'rounded-[66px]'"
         >
           <!-- maska -->
           <div
@@ -93,7 +92,10 @@
                   aria-label="odkaz na stránku průkazy PENB"
                   class="flex items-center border-b border-transparent hover:border-white"
                 >
-                  <span>Průkazy <span class="uppercase">penb</span></span>
+                  <span>
+                    Průkazy
+                    <span class="uppercase">penb</span>
+                  </span>
                   <img
                     src="/src/images/arrow-dark-green.svg"
                     alt=""
@@ -112,12 +114,11 @@
                     :href="item.link"
                     :aria-label="item.ariaLabel"
                     x-text="item.name"
-                  >
-                  </a>
+                  ></a>
                 </li>
               </template>
               <li class="pl-[29px] pt-[24px]">
-                <a href="/" aria-label="odkaz na stránku kontakt">Kontakt </a>
+                <a href="/" aria-label="odkaz na stránku kontakt">Kontakt</a>
               </li>
               <li class="flex flex-col pl-[29px] pt-[243px]">
                 <a href="tel:+420549241370" class="mb-[13px] flex">
@@ -166,7 +167,10 @@
               aria-label="odkaz na stránku průkazy PENB"
               class="flex items-center border-b border-transparent font-[500] hover:border-white hover:duration-500"
             >
-              <span>Průkazy <span class="uppercase">penb</span></span>
+              <span>
+                Průkazy
+                <span class="uppercase">penb</span>
+              </span>
               <img
                 src="/src/images/arrow-light-green.svg"
                 alt=""
@@ -188,12 +192,11 @@
                 :href="item.link"
                 :aria-label="item.ariaLabel"
                 x-text="item.name"
-              >
-              </a>
+              ></a>
             </li>
           </template>
           <li
-            class="w-[176px] rounded-full border border-quaternary py-[6px] pl-[24px] pr-[7px] duration-300 hover:bg-secondary hover:text-primary"
+            class="w-[176px] rounded-[66px] border border-quaternary py-[6px] pl-[24px] pr-[7px] duration-300 hover:bg-secondary hover:text-primary"
           >
             <a
               href="/"
