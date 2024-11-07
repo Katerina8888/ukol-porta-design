@@ -24,7 +24,7 @@
                 :href="item.link"
                 :aria-label="item.ariaLabel"
                 x-text="item.name"
-                class="relative pb-[15px] text-tertiary text-s w-full hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-1/2 hover:after:-translate-x-1/2 hover:after:bg-[url('/src/images/arrow-up-full.svg')] hover:after:w-[13px] hover:after:h-[6px]"
+                class="relative pb-[15px] font-[500] text-tertiary text-s w-full hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-1/2 hover:after:-translate-x-1/2 hover:after:bg-[url('/src/images/arrow-up-full.svg')] hover:after:w-[13px] hover:after:h-[6px]"
               >
               </a>
             </li>
@@ -33,7 +33,7 @@
       </nav>
 
       <nav
-        class="pl-[18px] pr-[19px] flex justify-between text-m"
+        class="pl-[18px] lg:pl-[60px] pr-[19px] flex justify-between text-m"
         x-data="{ menuItems: [
       { name: 'Energetické posudky', link: '/', ariaLabel: 'odkaz na stránku energetické posudky' },
       { name: 'O nás', link: '/', ariaLabel: 'odkaz na stránku o nás' },
@@ -61,7 +61,7 @@
         >
           <!-- maska -->
           <div
-            :class="open ? 'absolute w-[150px] h-[60px] bg-white mask-radial top-[110px] right-[19px]':''"
+            :class="open ? 'absolute w-[151px] h-[60px] bg-white mask-radial top-[110px] right-[19px]':''"
           ></div>
 
           <!-- Tlačítko pro otevírání menu -->
@@ -160,11 +160,11 @@
 
         <!-- desktop menu -->
         <ul class="hidden text-white lg:flex mt-[24px]">
-          <li class="pr-[54px] pt-[13px] pb-[14px]">
+          <li class="pr-[35px] xl:pr-[54px] pt-[13px] pb-[14px]">
             <a
               href="/"
               aria-label="odkaz na stránku průkazy PENB"
-              class="flex items-center border-b border-transparent hover:border-white"
+              class="flex items-center border-b border-transparent hover:border-white hover:duration-500 font-[500]"
             >
               <span>Průkazy <span class="uppercase">penb</span></span>
               <img
@@ -180,11 +180,11 @@
           </li>
           <template x-for="item in menuItems" :key="item.name">
             <li
-              class="pr-[54px] pt-[13px] pb-[14px]"
+              class="pr-[35px] xl:pr-[54px] pt-[13px] pb-[14px]"
               x-data="{ isOpen: false }"
             >
               <a
-                class="border-b border-transparent hover:border-white"
+                class="border-b border-transparent hover:border-white hover:duration-500 font-[500]"
                 :href="item.link"
                 :aria-label="item.ariaLabel"
                 x-text="item.name"
@@ -193,7 +193,7 @@
             </li>
           </template>
           <li
-            class="py-[6px] pl-[24px] pr-[7px] border border-quaternary rounded-full w-[176px] hover:bg-tertiary hover:text-black"
+            class="py-[6px] pl-[24px] pr-[7px] border border-quaternary rounded-full w-[176px] hover:bg-secondary hover:text-primary duration-300"
           >
             <a
               href="/"
@@ -201,7 +201,7 @@
               role="button"
               aria-label="odkaz na stránku kontakt"
             >
-              <span class="flex items-center">Kontakt</span>
+              <span class="flex items-center font-[500]">Kontakt</span>
               <div
                 class="flex justify-center items-center bg-secondary w-[36px] h-[36px] rounded-full text-black"
               >
