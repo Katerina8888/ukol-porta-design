@@ -19,6 +19,7 @@ export default {
         secondary: "#C6E51B",
         tertiary: "#B0D9D4",
         quaternary: "#B0D9D433",
+        fifth: "#285556",
       },
     },
   },
