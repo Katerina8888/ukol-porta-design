@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background-color: #063436;
-}
+/* :root {
+  --color-primary: #063436;
+} */
 
 @font-face {
   font-family: "Plus Jakarta Sans";
@@ -36,13 +36,14 @@
   font-display: swap;
 }
 
-body {
-  font-family: "Plus Jakarta Sans", Arial, sans-serif;
-  /* max-width: 2500px; */
-  margin: 0 auto;
-}
-
 @layer utilities {
+  body {
+    font-family: "Plus Jakarta Sans", Arial, sans-serif;
+    /* maximální šířka okna pro udržení umístění - není k dispozici návrh pro "nekonečné" rozlišení */
+    max-width: 1701px;
+    margin: 0 auto;
+  }
+
   .mask-radial {
     -webkit-mask-image: radial-gradient(
       circle 10px at 0 0,
