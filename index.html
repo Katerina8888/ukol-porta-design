@@ -74,7 +74,7 @@
           >
             <span>Menu</span>
             <div
-              class="flex h-[36px] w-[36px] items-center justify-center rounded-full bg-secondary text-primary"
+              class="z-10 flex h-[36px] w-[36px] items-center justify-center rounded-full bg-secondary text-primary"
             >
               <span x-text="open ? 'X' : '☰'"></span>
             </div>
@@ -230,41 +230,54 @@
     </header>
 
     <main>
-      <!-- todo upravit hight dle skutečných hodnot -->
       <section
-        class="jumbotron mb-[6rem] rounded-bl-[40px] rounded-br-[40px] bg-primary px-[60px] pt-[55px] text-white"
+        class="jumbotron mb-[6rem] rounded-bl-[40px] rounded-br-[40px] bg-primary pl-[18px] pr-[19px] pt-[59px] text-white lg:px-[60px] lg:pt-[55px]"
       >
-        <div class="wrapper ml-[4px] pb-[65px]">
-          <!-- todo upravit mb dle skutečné hodnoty -->
-          <h1 class="mb-[100px] ml-[1px] text-[56px] text-white">
+        <div class="wrapper ml-[4px] pb-[8px] lg:pb-[65px]">
+          <h1 class="mb-[100px] ml-[1px] text-[46px] text-white lg:hidden">
+            Dokazujeme, že šetrnost k přírodě je
+            <span class="font-bold">ekonomicky výhodná</span>
+          </h1>
+
+          <h1
+            class="mb-[100px] ml-[1px] hidden text-white lg:block lg:text-[56px]"
+          >
             Dokazujeme, že šetrnost k přírodě
             <br />
             je
             <span class="font-bold">ekonomicky výhodná</span>
           </h1>
-
-          <div class="wrapper-inner flex">
+          <!-- oprav na nullish -->
+          <div
+            x-data="{ open: false }"
+            class="wrapper-inner lg:flex"
+            :class="open ? 'mt-[1000px]' : ''"
+          >
             <!-- levá část jumbotronu -->
             <div
-              class="left-block border-fifth relative mr-[33px] flex h-[453px] w-[905px] rounded-[26px] border bg-[url('/src/images/bg-light-dark.png')] pl-[60px] pr-[51px]"
+              class="left-block border-fifth relative mb-[23px] mr-[33px] flex h-[339px] w-[353px] rounded-[26px] border bg-[url('/src/images/bg-light-dark.png')] pl-[30px] lg:mb-0 lg:h-[453px] lg:w-[905px] lg:pl-[60px] lg:pr-[51px]"
             >
               <div class="left-block__wrapper flex w-full justify-between">
                 <div>
-                  <h2 class="mb-[5px] pb-[2px] pt-[49px] text-2xl font-bold">
+                  <h2
+                    class="mb-[5px] pb-[2px] pt-[27px] text-2xl font-bold lg:pt-[49px]"
+                  >
                     Průkaz
                     <span class="uppercase">penb</span>
                   </h2>
                   <div class="w-[265px] text-xl">
                     Získejte průkaz energetické náročnosti budovy
                   </div>
-                  <div class="mb-[108px] mt-[2rem] text-2xl">
+                  <div
+                    class="mb-[35px] mt-[1rem] text-2xl lg:mb-[108px] lg:mt-[2rem]"
+                  >
                     od
                     <span class="font-bold">4 598</span>
                     Kč
                   </div>
 
                   <div
-                    class="w-[176px] rounded-[66px] border border-transparent bg-secondary py-[6px] pl-[24px] pr-[7px] text-primary duration-300 hover:bg-tertiary"
+                    class="h-[56px] w-[176px] rounded-[66px] border border-transparent bg-secondary py-[6px] pl-[24px] pr-[7px] text-primary duration-300 hover:bg-tertiary"
                   >
                     <a
                       href="/"
@@ -335,12 +348,13 @@
             ] }"
               >
                 <template x-for="item in boxItems" :key="item.title">
-                  <div
-                    class="border-fifth mb-[27px] flex h-[133px] w-[639px] rounded-[26px] border pl-[35px] hover:border-white"
+                  <a
+                    href="/"
+                    aria-label=""
+                    class="border-fifth mb-[27px] flex h-[133px] w-[353px] rounded-[26px] border pl-[35px] hover:border-white lg:w-[639px]"
                   >
-                    <a
-                      href="/"
-                      class="after:bg-fifth relative after:absolute after:right-[-6rem] after:top-[-2px] after:h-[135px] after:w-[1px] after:rotate-[11deg] after:content-['']"
+                    <div
+                      class="after:bg-fifth relative after:absolute after:right-[-6rem] after:top-[-2px] after:hidden after:h-[135px] after:w-[1px] after:rotate-[11deg] after:content-[''] after:lg:block"
                     >
                       <span
                         class="absolute left-0 top-[-13px] h-[26px] rounded-[60px] border border-tertiary bg-tertiary px-[11.5px] pt-[3.5px] text-xs font-[500] text-primary"
@@ -360,10 +374,10 @@
                       </div>
 
                       <p
-                        class="h-[53px] w-[358px] text-m text-tertiary"
+                        class="h-[53px] text-m text-tertiary lg:w-[358px]"
                         x-text="item.description"
                       ></p>
-                    </a>
+                    </div>
 
                     <div class="my-auto ml-auto mr-[30.75px]">
                       <img
@@ -371,11 +385,11 @@
                         :alt="item.imgAlt"
                         width="61px"
                         height="53px"
-                        class="h-[53px] w-[61px]"
+                        class="hidden h-[53px] w-[61px] lg:block"
                         loading="lazy"
                       />
                     </div>
-                  </div>
+                  </a>
                 </template>
               </div>
             </div>
