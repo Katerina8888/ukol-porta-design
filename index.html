@@ -11,7 +11,7 @@
   <body>
     <header class="bg-primary">
       <nav
-        class="border-b border-quaternary px-[18px] pb-[12px] lg:px-[60px]"
+        class="border-b border-quaternary px-[18px] pb-[12px] pt-[8px] lg:px-[60px] lg:pt-[4px]"
         x-data="{ upperMenuItems: [
         { name: 'oekoplan.cz', link: '/', ariaLabel: 'odkaz na web oekoplan.cz' },
         { name: 'eprukaz.cz', link: '/', ariaLabel: 'odkaz na web eprukaz.cz' }
@@ -19,7 +19,7 @@
       >
         <ul class="flex">
           <template x-for="item in upperMenuItems" :key="item.name">
-            <li class="mr-[14px] mt-2 w-[102px]">
+            <li class="mr-[14px] mt-2 h-[27px] w-[102px]">
               <a
                 :href="item.link"
                 :aria-label="item.ariaLabel"
@@ -32,14 +32,14 @@
       </nav>
 
       <nav
-        class="flex justify-between pl-[18px] pr-[19px] text-m lg:pl-[60px]"
+        class="flex justify-between pl-[18px] pr-[19px] text-m lg:pb-[27px] lg:pl-[60px]"
         x-data="{ menuItems: [
       { name: 'Energetické posudky', link: '/', ariaLabel: 'odkaz na stránku energetické posudky' },
       { name: 'O nás', link: '/', ariaLabel: 'odkaz na stránku o nás' },
       { name: 'Kariéra', link: '/', ariaLabel: 'odkaz na stránku kariéra' },
     ] }"
       >
-        <div class="pt-[27px]">
+        <div class="pt-[27px] lg:pt-[31px]">
           <a href="/" aria-label="úvodní stránka">
             <img
               src="/src/images/logo.svg"
@@ -160,8 +160,8 @@
         </div>
 
         <!-- desktop menu -->
-        <ul class="mt-[24px] hidden text-white lg:flex">
-          <li class="pb-[14px] pr-[35px] pt-[13px] xl:pr-[54px]">
+        <ul class="destop-menu mt-[24px] hidden text-white lg:flex">
+          <li class="pb-[14px] pr-[35px] pt-[13px] xl:pr-[41px]">
             <a
               href="/"
               aria-label="odkaz na stránku průkazy PENB"
@@ -182,9 +182,14 @@
               />
             </a>
           </li>
-          <template x-for="item in menuItems" :key="item.name">
+          <template x-for="(item, index) in menuItems" :key="item.name">
             <li
-              class="pb-[14px] pr-[35px] pt-[13px] xl:pr-[54px]"
+              :class="{
+              'lg:pr-[48px]': index === 0,
+              'lg:pr-[52px]': index === 1,
+              'lg:pr-[57px]': index === 2
+            }"
+              class="pb-[14px] pr-[35px] pt-[13px]"
               x-data="{ isOpen: false }"
             >
               <a
@@ -223,5 +228,90 @@
         </ul>
       </nav>
     </header>
+
+    <main>
+      <!-- todo upravit hight dle skutečných hodnot -->
+      <section
+        class="jumbotron mb-[6rem] rounded-bl-[40px] rounded-br-[40px] bg-primary px-[60px] pt-[55px] text-white"
+      >
+        <div class="wrapper ml-[4px] pb-[65px]">
+          <!-- todo upravit mb dle skutečné hodnoty -->
+          <h1 class="mb-[100px] ml-[1px] text-[56px] text-white">
+            Dokazujeme, že šetrnost k přírodě
+            <br />
+            je
+            <span class="font-bold">ekonomicky výhodná</span>
+          </h1>
+
+          <div class="wrapper-inner flex">
+            <!-- levá část jumbotronu -->
+            <div
+              class="left-block relative flex h-[453px] w-[905px] rounded-[26px] border border-tertiary bg-[url('/src/images/bg-light-dark.png')] pl-[60px] pr-[51px]"
+            >
+              <div class="left-block__wrapper flex w-full justify-between">
+                <div>
+                  <h2 class="mb-[5px] pb-[2px] pt-[49px] text-2xl font-bold">
+                    Průkaz
+                    <span class="uppercase">penb</span>
+                  </h2>
+                  <div class="w-[265px] text-xl">
+                    Získejte průkaz energetické náročnosti budovy
+                  </div>
+                  <div class="mb-[108px] mt-[2rem] text-2xl">
+                    od
+                    <span class="font-bold">4 598</span>
+                    Kč
+                  </div>
+
+                  <div
+                    class="w-[176px] rounded-[66px] border border-transparent bg-secondary py-[6px] pl-[24px] pr-[7px] text-primary duration-300 hover:bg-tertiary"
+                  >
+                    <a
+                      href="/"
+                      class="flex justify-between"
+                      role="button"
+                      aria-label="odkaz na stránku kontakt"
+                    >
+                      <span class="flex items-center font-[500]">
+                        Chci průkaz
+                      </span>
+                      <div
+                        class="flex h-[42.7px] w-[42.7px] items-center justify-center rounded-full bg-primary"
+                      >
+                        <img
+                          src="/src/images/arrow-white.svg"
+                          alt=""
+                          width="16px"
+                          height="16px"
+                          loading="lazy"
+                          aria-hidden="true"
+                          class="h-[25.17px] w-[25.17px]"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="img-wrapper mt-auto hidden md:block">
+                  <img
+                    src="/src/images/main-image-470w.png"
+                    srcset="
+                      /src/images/main-image-200w.png 200w,
+                      /src/images/main-image-470w.png 470w
+                    "
+                    sizes="(max-width: 470px) 200px, 470px"
+                    alt="tiskopisy"
+                    loading="lazy"
+                    class="h-auto max-w-[100%]"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- pravá část jumbotronu -->
+            <div class="right-block h-[453px] w-[905px]"></div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
