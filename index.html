@@ -246,7 +246,7 @@
           <div class="wrapper-inner flex">
             <!-- levá část jumbotronu -->
             <div
-              class="left-block relative flex h-[453px] w-[905px] rounded-[26px] border border-tertiary bg-[url('/src/images/bg-light-dark.png')] pl-[60px] pr-[51px]"
+              class="left-block border-fifth relative mr-[33px] flex h-[453px] w-[905px] rounded-[26px] border bg-[url('/src/images/bg-light-dark.png')] pl-[60px] pr-[51px]"
             >
               <div class="left-block__wrapper flex w-full justify-between">
                 <div>
@@ -308,7 +308,77 @@
               </div>
             </div>
             <!-- pravá část jumbotronu -->
-            <div class="right-block h-[453px] w-[905px]"></div>
+            <div class="right-block">
+              <div
+                x-data="{ boxItems: [
+                  {
+                    title: 'Nová zelená úsporám',
+                    label: 'Energetický posudek',
+                    description: 'Snižte si rozpočet u novostavby díky dotačnímu programu nzú',
+                    imgSrc: '/src/images/logo-nzu.svg',
+                    imgAlt: 'logo nová zelená úsporám'
+                  },
+                  {
+                    title: 'OP Životní prostředí',
+                    label: 'Energetický posudek',
+                    description: 'Získejte energetický posudek pro rekonstrukci veřejné budovy',
+                    imgSrc: '/src/images/image.svg',
+                    imgAlt: 'logo nová zelená úsporám'
+                  },
+                  {
+                    title: 'OP Podnikání',
+                    label: 'Energetický posudek',
+                    description: 'Snižte energetickou náročnost svého podnikání díky dotačnímu programu',
+                    imgSrc: '/src/images/light-bulb.svg',
+                    imgAlt: 'logo nová zelená úsporám'
+                  }
+            ] }"
+              >
+                <template x-for="item in boxItems" :key="item.title">
+                  <div
+                    class="border-fifth mb-[27px] flex h-[133px] w-[639px] rounded-[26px] border pl-[35px] hover:border-white"
+                  >
+                    <a
+                      href="/"
+                      class="after:bg-fifth relative after:absolute after:right-[-6rem] after:top-[-2px] after:h-[135px] after:w-[1px] after:rotate-[11deg] after:content-['']"
+                    >
+                      <span
+                        class="absolute left-0 top-[-13px] h-[26px] rounded-[60px] border border-tertiary bg-tertiary px-[11.5px] pt-[3.5px] text-xs font-[500] text-primary"
+                        x-text="item.label"
+                      ></span>
+
+                      <div class="mb-[7px] mt-[30px] flex">
+                        <h3 class="text-xl font-bold" x-text="item.title"></h3>
+                        <img
+                          src="/src/images/arrow-right-light-green.svg"
+                          alt=""
+                          loading="lazy"
+                          class="ml-[3px] mt-[10px] h-[13px] w-[13px]"
+                          width="13px"
+                          height="13px"
+                        />
+                      </div>
+
+                      <p
+                        class="h-[53px] w-[358px] text-m text-tertiary"
+                        x-text="item.description"
+                      ></p>
+                    </a>
+
+                    <div class="my-auto ml-auto mr-[30.75px]">
+                      <img
+                        :src="item.imgSrc"
+                        :alt="item.imgAlt"
+                        width="61px"
+                        height="53px"
+                        class="h-[53px] w-[61px]"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
           </div>
         </div>
       </section>
