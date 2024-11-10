@@ -11,7 +11,7 @@
   <body>
     <header class="bg-primary">
       <nav
-        class="border-b border-quaternary px-[18px] pb-[12px] pt-[8px] lg:px-[60px] lg:pt-[4px]"
+        class="h-[47px] border-b border-quaternary px-[18px] pb-[10px] pt-[8px] lg:h-[41px] lg:px-[60px] lg:pt-[4px]"
         x-data="{ upperMenuItems: [
         { name: 'oekoplan.cz', link: '/', ariaLabel: 'odkaz na web oekoplan.cz' },
         { name: 'eprukaz.cz', link: '/', ariaLabel: 'odkaz na web eprukaz.cz' }
@@ -24,7 +24,7 @@
                 :href="item.link"
                 :aria-label="item.ariaLabel"
                 x-text="item.name"
-                class="relative w-full pb-[15px] text-s font-[500] text-tertiary hover:after:absolute hover:after:bottom-0 hover:after:left-1/2 hover:after:h-[6px] hover:after:w-[13px] hover:after:-translate-x-1/2 hover:after:bg-[url('/src/images/arrow-up-full.svg')] hover:after:content-['']"
+                class="relative w-full pb-[15px] text-s font-[500] text-tertiary hover:after:absolute hover:after:bottom-[7px] hover:after:left-1/2 hover:after:h-[8px] hover:after:w-[13px] hover:after:-translate-x-1/2 hover:after:bg-[url('/src/images/arrow-up-full.svg')] hover:after:bg-no-repeat hover:after:content-['']"
               ></a>
             </li>
           </template>
@@ -160,7 +160,9 @@
         </div>
 
         <!-- desktop menu -->
-        <ul class="destop-menu mt-[24px] hidden text-white lg:flex">
+        <ul
+          class="destop-menu mt-[24px] hidden text-white lg:flex lg:w-[755.34px]"
+        >
           <li class="pb-[14px] pr-[35px] pt-[13px] lg:pr-[41px]">
             <a
               href="/"
