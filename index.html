@@ -161,7 +161,7 @@
 
         <!-- desktop menu -->
         <ul class="destop-menu mt-[24px] hidden text-white lg:flex">
-          <li class="pb-[14px] pr-[35px] pt-[13px] xl:pr-[41px]">
+          <li class="pb-[14px] pr-[35px] pt-[13px] lg:pr-[41px]">
             <a
               href="/"
               aria-label="odkaz na stránku průkazy PENB"
@@ -250,12 +250,12 @@
           <!-- oprav na nullish -->
           <div
             x-data="{ open: false }"
-            class="wrapper-inner lg:flex"
+            class="wrapper-inner md:flex md:justify-center lg:justify-start"
             :class="open ? 'mt-[1000px]' : ''"
           >
             <!-- levá část jumbotronu -->
             <div
-              class="left-block border-fifth relative mb-[23px] mr-[33px] flex h-[339px] w-[353px] rounded-[26px] border bg-[url('/src/images/bg-light-dark.png')] pl-[30px] lg:mb-0 lg:h-[453px] lg:w-[905px] lg:pl-[60px] lg:pr-[51px]"
+              class="left-block relative mb-[23px] mr-[33px] flex h-[339px] w-[353px] rounded-[26px] border border-fifth bg-[url('/src/images/bg-light-dark.png')] bg-no-repeat pl-[30px] md:h-[450px] lg:mb-0 lg:h-[453px] lg:w-[905px] lg:pl-[60px] lg:pr-[51px]"
             >
               <div class="left-block__wrapper flex w-full justify-between">
                 <div>
@@ -305,7 +305,7 @@
                   </div>
                 </div>
 
-                <div class="img-wrapper mt-auto hidden md:block">
+                <div class="img-wrapper mt-auto hidden lg:block">
                   <img
                     src="/src/images/main-image-470w.png"
                     srcset="
@@ -351,10 +351,10 @@
                   <a
                     href="/"
                     aria-label=""
-                    class="border-fifth mb-[27px] flex h-[133px] w-[353px] rounded-[26px] border pl-[35px] hover:border-white lg:w-[639px]"
+                    class="mb-[27px] flex h-[133px] w-[353px] rounded-[26px] border border-fifth pl-[35px] hover:border-white lg:w-[520px] xl:w-[639px]"
                   >
                     <div
-                      class="after:bg-fifth relative after:absolute after:right-[-6rem] after:top-[-2px] after:hidden after:h-[135px] after:w-[1px] after:rotate-[11deg] after:content-[''] after:lg:block"
+                      class="relative after:absolute after:right-[-6rem] after:top-[-2px] after:hidden after:h-[135px] after:w-[1px] after:rotate-[11deg] after:bg-fifth after:content-[''] after:xl:block"
                     >
                       <span
                         class="absolute left-0 top-[-13px] h-[26px] rounded-[60px] border border-tertiary bg-tertiary px-[11.5px] pt-[3.5px] text-xs font-[500] text-primary"
