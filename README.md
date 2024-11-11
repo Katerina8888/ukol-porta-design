@@ -1,6 +1,10 @@
 # Readme
 
-Tento projekt používá Vite pro vývoj a sestavení, Tailwind CSS pro styling, Alpine.js pro interaktivitu a GSAP pro animace.
+Tento projekt používá Vite pro vývoj a sestavení, Tailwind CSS pro styling, Alpine.js pro interaktivitu.
+
+# Instalace závislostí
+
+`npm install`
 
 # Spuštění projektu
 
